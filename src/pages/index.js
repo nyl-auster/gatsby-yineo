@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from '../ui/Container'
-import PostTeaser from '../ui/postTeaser'
+import PostTeaser from '../ui/PostTeaser'
 
 export default props => {
   return (
