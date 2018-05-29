@@ -1,19 +1,12 @@
 import React from 'react'
-import LinkButton from '../ui/LinkButton'
 import Container from '../ui/Container'
+import PostTeaser from '../ui/postTeaser'
 
 export default props => {
   return (
     <Container>
       {props.data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
-          <h3>
-            {node.frontmatter.title}{' '}
-            <span color="#BBB">— {node.frontmatter.date}</span>
-          </h3>
-          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-          <LinkButton to={node.frontmatter.path}>Lire la suite</LinkButton>
-        </div>
+        <PostTeaser key={node.id} node={node} />
       ))}
     </Container>
   )
@@ -30,7 +23,7 @@ export const query = graphql`
           frontmatter {
             title
             path
-            date(formatString: "DD/M/YYYY")
+            date(formatString: "DD/MM/YYYY")
           }
         }
       }
